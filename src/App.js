@@ -2,6 +2,11 @@ import React from "react";
 
 import "./styles.css";
 
+const projects = [
+  { title: "1", descricao: "dasdas" },
+  { title: "1", descricao: "dasdas" },
+];
+
 function App() {
   async function handleAddRepository() {
     // TODO
@@ -14,13 +19,12 @@ function App() {
   return (
     <div>
       <ul data-testid="repository-list">
-        <li>
-          Repositório 1
-
-          <button onClick={() => handleRemoveRepository(1)}>
-            Remover
-          </button>
-        </li>
+        {projects.map((project) => (
+          <li>
+            {project.title}
+            <button onClick={() => handleRemoveRepository(1)}>Remover</button>
+          </li>
+        ))}
       </ul>
 
       <button onClick={handleAddRepository}>Adicionar</button>
